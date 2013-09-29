@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-# SET Media Coding Test
-
 import requests # http://docs.python-requests.org/en/latest/
 import json
 # from urllib.parse import urlencode # Python 3
@@ -94,7 +92,7 @@ if __name__ == "__main__":
 		youtube_videos.append(YoutubeVideo(video, video['title']['$t'], video['link'][0]['href'], video['category'][1]['label'], video['media$group']['media$thumbnail'][0]['url']))
 
 	# Youtube analytics
-	
+	# Never got to this
 
 	# Show that they actually exist and have data
 	for video in youtube_videos:
@@ -104,9 +102,15 @@ if __name__ == "__main__":
 		print('Category: %s' % video.category)
 		print('Thumbnail: %s' % video.thumbnail)
 
-	# Query for a single video
+	# Query for a single video, Conan skit
 	test_url = 'http://www.youtube.com/watch?v=enKCgVSBSPs'
 	single_video_resp = youtube_parser.query_single_url(test_url).json()
 	single_video_json = single_video_resp['entry']
-	single_video = YoutubeVideo(single_video_json, single_video_json['title']['$t'], single_video_json['link'][0]['href'], single_video_json['category'][1]['label'], single_video_json['media$group']['media$thumbnail'][0]['url']))
-
+	single_video = YoutubeVideo(single_video_json, single_video_json['title']['$t'], single_video_json['link'][0]['href'], single_video_json['category'][1]['label'], single_video_json['media$group']['media$thumbnail'][0]['url'])
+	
+	print('-----------------------')
+	print('SINGLE Video')
+	print('Name: %s' % single_video.name)
+	print('URL: %s' % single_video.url)
+	print('Category: %s' % single_video.category)
+	print('Thumbnail: %s' % single_video.thumbnail)
